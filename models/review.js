@@ -23,6 +23,6 @@ const reviewSchema=new Schema(
 
 
     // mongoose.model('review', reviewSchema); 
-    // // i have edited here added this line 
+
 
 module.exports= mongoose.model("review",reviewSchema);

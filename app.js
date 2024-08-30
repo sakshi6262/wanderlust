@@ -1,10 +1,5 @@
-// if(process.env.NODE_ENV!="production"){
-//     require("dotenv").config();
-// }
+
 require('dotenv').config();
-
-
-
 
 const path = require('path');
 const express = require('express');
@@ -34,59 +29,23 @@ const mongoose = require("mongoose");
 
 // const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
-//editing
+
 const dbUrl=`mongodb+srv://${process.env.ATLASDB_URL}`;
 
-//this line is added by me using chatgpt
+
 
 console.log("MongoDB URL:",dbUrl);
 console.log("Secret:", process.env.SECRET);
 
-//till here 
-
-
-//added by chat gpt
-// async function main() {
-//     await mongoose.connect(dbUrl, {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true,
-//         useCreateIndex: true,
-//         useFindAndModify: false,
-//     });
-// }
-
-//ye bhi chat gpt ka hai
-
-// mongoose.connect('mongodb://localhost:27017/yourdb', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     connectTimeoutMS: 30000,
-//     socketTimeoutMS: 45000,
-//     poolSize: 10
-//   }).then(() => {
-//     console.log('MongoDB connected');
-//   }).catch(err => {
-//     console.error('MongoDB connection error:', err);
-//   });
-
-//yha tak hai cgpt
 
 
 
-// main()
-// .then(() => {
-//     console.log("connected to db");
-// }).catch(() => {
-
-//     console.log("cant connect to db");
-// });
-// async function main() {
-//     await mongoose.connect(`mongodb+srv://${dbUrl}`);
-// };
-// //end of creating mongoose database
 
 
-// chat gpt till main call
+
+
+
+
 async function main() {
     try {
         await mongoose.connect(dbUrl);
@@ -97,10 +56,6 @@ async function main() {
 };
 
 main();
-
-
-
-
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -127,10 +82,6 @@ const store=MongoStore.create({
 store.on("error",()=>{
     console,log("ERROR IN MONGO SESSION STORE",err);
 });
-
-
-
-
 
 
 
