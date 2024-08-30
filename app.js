@@ -117,7 +117,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.listen(8080, () => {
-    console.log("server is listenning;on 8080 port")
+    console.log("server is listenning on 8080 port")
 });
 
 app.use(methodOverride("_method"));
