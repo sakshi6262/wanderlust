@@ -88,4 +88,32 @@ app.use((err,req,res,next)=>{
 
 // okk
 
-//i will spaak a sentence and you have to correct it daily and provide valid reason for incorrectness/
+//i will spaak a sentence and you have to correct it daily and provide valid reason for incorrectness/\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class ExpressError extends Error {
+    constructor(statusCode,message){
+        super();
+        this.statusCode=statusCode;
+        this.message=message;
+
+    }
+}
+
+module.exports=ExpressError;
