@@ -32,19 +32,8 @@ const mongoose = require("mongoose");
 
 const dbUrl=`mongodb+srv://${process.env.ATLASDB_URL}`;
 
-
-
 console.log("MongoDB URL:",dbUrl);
-console.log("Secret:", process.env.SECRET);
-
-
-
-
-
-
-
-
-
+console.log("Secret:", process.env.SECRET)
 
 async function main() {
     try {
@@ -80,7 +69,7 @@ const store=MongoStore.create({
     touchAfter:24*3600,
 });
 store.on("error",()=>{
-    console,log("ERROR IN MONGO SESSION STORE",err);
+    console.log("ERROR IN MONGO SESSION STORE",err);
 });
 
 
