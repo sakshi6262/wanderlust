@@ -88,6 +88,23 @@ const sessionOptions={
 };
 
 
+
+const crypto = require('crypto');
+
+// Function to generate HMAC-SHA256 signature
+function generateSignature(stringToSign, secret) {
+    return crypto
+        .createHmac('sha256', secret)  // HMAC with SHA-256
+        .update(stringToSign)           // Update with the string to sign
+        .digest('hex');                 // Output in hexadecimal format
+}
+
+const stringToSign = 'folder=wanderlust_DEV&timestamp=1725108257';  // Example string
+const secret = process.env.SECRET;  // Secret key from environment variables
+
+const generatedSignature = generateSignature(stringToSign, secret);
+console.log('Generated Signature:', generatedSignature);
+
 // app.get("/", (req, res) => {
 //     res.send("Hi, I am root");
 //   });
