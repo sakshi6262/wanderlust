@@ -1,10 +1,81 @@
+
 <% layout("/layouts/boilerplate")%>
   <!-- <h3>All Listings</h3> -->
   <!-- <form method="GET" action="/listings/new">
         <button>Create New Listing</button>
     </form> -->
-    <style>
-      #filters{
+    
+<style>
+  #filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center; /* Ensure alignment in mobile view */
+  }
+
+  .filter {
+    text-align: center;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    opacity: 0.8;
+    width: 100%;
+    max-width: 120px; /* Ensure a consistent max-width */
+  }
+
+  .filter:hover {
+    opacity: 1;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .filter p {
+    font-size: 1rem; /* Increase text size for better readability on mobile */
+  }
+
+  /* Media Queries for Mobile View */
+  @media (max-width: 768px) {
+    #filters {
+      flex-direction: column; /* Stack filters vertically on mobile */
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .filter {
+      margin-right: 0;
+      margin-bottom: 1rem;
+      width: 90%; /* Full width on smaller screens */
+    }
+
+    .filter p {
+      font-size: 1.2rem; /* Slightly larger font for better readability */
+    }
+  }
+
+  #filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Hide the filters and show dropdown on mobile */
+@media (max-width: 768px) {
+  #filters {
+    display: none;
+  }
+
+  #filter-dropdown {
+    display: block;
+  }
+
+  select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+</style>
+
+      <!-- #filters{
         display: flex;
         flex-wrap: wrap;
         /* justify-content: space-between; */
@@ -40,9 +111,9 @@
         display: fle;
         align-items: center;
       }
-    </style>
+    </style> -->
 
-
+<div id="filter-container">
   <div id="filters">
 
     <div class="filter">
@@ -117,6 +188,24 @@
 
 
   </div>
+  <div id="filter-dropdown" style="display:none;"></div>
+    <select id="mobile-filters" onchange="handleFilterChange(this.value)">
+      <option value="" disabled selected>Select a filter</option>
+      <option value="trending">Trending</option>
+      <option value="rooms">Rooms</option>
+      <option value="iconic-cities">Iconic Cities</option>
+      <option value="mountains">Mountains</option>
+      <option value="castles">Castles</option>
+      <option value="amazing-pools">Amazing Pools</option>
+      <option value="camping">Camping</option>
+      <option value="farms">Farms</option>
+      <option value="arctic">Arctic</option>
+      <option value="domes">Domes</option>
+      <option value="boats">Boats</option>
+    </select>
+  </div>
+
+</div>
 
 
 
@@ -163,4 +252,8 @@ taxSwitch.addEventListener("click",()=>{
 
   }
 })
+
+function handleFilterChange(selectedFilter) {
+  // Handle the selected filter logic, like filtering or redirecting based on user choice
+  console.log("Selected filter:", selectedFilter);}
   </script>

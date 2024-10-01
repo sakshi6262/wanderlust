@@ -4,6 +4,35 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
 </head> -->
 
+
+<style>/* Default Edit button styles */
+    .edit-btn {
+        width: auto;
+        padding: 10px 20px;
+        font-size: 1rem;
+        display: inline-block;
+    }
+    
+    /* Make the Edit button responsive on mobile */
+    @media (max-width: 768px) {
+        .edit-btn {
+            width: 100%; /* Full width on smaller screens */
+            font-size: 1.2rem; /* Larger text for readability */
+            padding: 15px; /* More padding for easier tapping */
+            margin-bottom: 10px; /* Add some spacing below the button */
+        }
+    
+        .btns {
+            display: flex;
+            flex-direction: column; /* Stack Edit and Delete buttons vertically */
+            align-items: center; /* Center the buttons */
+        }
+    
+        .btns form button {
+            width: 100%; /* Full width for the Delete button too */
+            margin-top: 10px; /* Spacing between Edit and Delete */
+        }
+    }</style>
 <script>
     const  mapToken="<%= process.env.MAP_TOKEN %>";
 
